@@ -1,6 +1,6 @@
 {% set name = "django-redis" %}
-{% set version = "4.10.0" %}
-{% set sha256 = "af0b393864e91228dd30d8c85b5c44d670b5524cb161b7f9e41acc98b6e5ace7" %}
+{% set version = "4.11.0" %}
+{% set sha256 = "a5b1e3ffd3198735e6c529d9bdf38ca3fcb3155515249b98dc4d966b8ddf9d2b" %}
 
 package:
   name: {{ name|lower }}
@@ -14,7 +14,7 @@ source:
 build:
   noarch: python
   number: 0
-  script: python -m pip install --no-deps --ignore-installed .
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
   host:
