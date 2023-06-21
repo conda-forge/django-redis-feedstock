@@ -1,6 +1,6 @@
 {% set name = "django-redis" %}
-{% set version = "4.10.0" %}
-{% set sha256 = "af0b393864e91228dd30d8c85b5c44d670b5524cb161b7f9e41acc98b6e5ace7" %}
+{% set version = "5.2.0" %}
+{% set sha256 = "8a99e5582c79f894168f5865c52bd921213253b7fd64d16733ae4591564465de" %}
 
 package:
   name: {{ name|lower }}
@@ -14,24 +14,31 @@ source:
 build:
   noarch: python
   number: 0
-  script: python -m pip install --no-deps --ignore-installed .
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
   host:
     - pip
-    - python
-    - setuptools
+    - python >=3.6
   run:
-    - python
-    - django >=1.8
-    - redis-py
+    - python >=3.6
+    - django >=2.2
+    - redis-py >=3,!=4.0.0,!=4.0.1
+
+test:
+  imports:
+    - django_redis
+  commands:
+    - pip check
+  requires:
+    - pip
 
 about:
   home: https://github.com/niwinz/django-redis
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE
-  summary: 'Full featured redis cache backend for Django'
+  summary: Full featured redis cache backend for Django
   description: |
     django-redis is a BSD Licensed, full featured Redis cache/session backend for Django.
   doc_url: https://niwinz.github.io/django-redis/latest/
@@ -40,4 +47,8 @@ about:
 extra:
   recipe-maintainers:
     - cshaley
+    - rxm7706
+    - millsks
+    - elanqo
+    - zaigner
     - sannykr
