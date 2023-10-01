@@ -1,6 +1,6 @@
 {% set name = "django-redis" %}
-{% set version = "5.3.0" %}
-{% set sha256 = "8bc5793ec06b28ea802aad85ec437e7646511d4e571e07ccad19cfed8b9ddd44" %}
+{% set version = "5.4.0" %}
+{% set sha256 = "6a02abaa34b0fea8bf9b707d2c363ab6adc7409950b2db93602e6cb292818c42" %}
 
 package:
   name: {{ name|lower }}
