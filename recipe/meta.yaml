@@ -1,5 +1,5 @@
 {% set name = "django-redis" %}
-{% set version = "6.0.0" %}
+{% set version = "7.0.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name | replace('-', '_') }}-{{ version }}.tar.gz
-  sha256: 2d9cb12a20424a4c4dde082c6122f486628bae2d9c2bee4c0126a4de7fda00dd
+  sha256: e48491c862f4350b0747ceb1016700686fb93c4f4e0fb9c490fe6c6658ffd933
 
 build:
   noarch: python
@@ -20,10 +20,16 @@ requirements:
     - python {{ python_min }}
     - setuptools
   run:
+    - typing_extensions >=4.12
     - python >={{ python_min }}
-    - django >=4.2
+    - django >=5.2,<7.0
     - redis-py >=4.0.2
     # - Django >=4.2
+    # - typing_extensions >=4.12
+    # - pyzstd >=0.15
+    # - msgpack-python >=0.6.0
+    # - lz4 >=0.15
+    # - Django <7.0,>=5.2
 
 test:
   imports:
